@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
+  <info>
+    <title>HORTI Reference Style</title>
+    <id>http://www.zotero.org/styles/horti-reference-style</id>
+    <author>
+      <name>Your Name</name>
+    </author>
+    <updated>2025-07-28T07:28:54.122794</updated>
+  </info>
+  <!-- MACROS -->
+  <macro name="author">
+    <names variable="author">
+      <name form="short" and="text" delimiter-precedes-last="always"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="editor">
+    <names variable="editor">
+      <name form="short" and="text" delimiter-precedes-last="always"/>
+      <label prefix=" (" suffix=")" form="short"/>
+    </names>
+  </macro>
+  <macro name="journal-abbrev">
+    <choose>
+      <if variable="container-title" match="Karnataka Journal of Agricultural Sciences">
+        <text value="Karnataka J. Agric. Sci."/>
+      </if>
+      <else>
+        <text variable="container-title" form="short"/>
+      </else>
+    </choose>
+  </macro>
+  <!-- BIBLIOGRAPHY -->
+  <bibliography>
+    <layout>
+      <if type="article-journal">
+        <group delimiter=". ">
+          <text macro="author"/>
+          <text variable="issued" prefix=" " suffix=",">
+            <date form="numeric" date-parts="year"/>
+          </text>
+          <text variable="title" font-style="normal"/>
+          <group delimiter=", ">
+            <text macro="journal-abbrev" font-style="italic"/>
+            <text variable="volume"/>
+            <text variable="issue" prefix="(" suffix=")"/>
+          </group>
+          <text variable="page" prefix=": " suffix="." format="page-range"/>
+        </group>
+      </if>
+      <if type="paper-conference">
+        <group delimiter=". ">
+          <text macro="author"/>
+          <text variable="issued" prefix=" " suffix=",">
+            <date form="numeric" date-parts="year"/>
+          </text>
+          <text variable="title" font-style="normal"/>
+          <text term="in" text-case="capitalize-first" suffix=": "/>
+          <text variable="event" text-case="title" suffix=" "/>
+          <text variable="event-date" form="text" prefix="held on " suffix=", "/>
+          <text variable="publisher-place" suffix=", "/>
+          <text variable="page" prefix="pp. " suffix="."/>
+        </group>
+      </if>
+      <if type="chapter">
+        <group delimiter=". ">
+          <text macro="author"/>
+          <text variable="issued" prefix=" " suffix=",">
+            <date form="numeric" date-parts="year"/>
+          </text>
+          <text variable="title" font-style="normal"/>
+          <text term="in" text-case="capitalize-first" suffix=" "/>
+          <text variable="container-title" suffix=", "/>
+          <text macro="editor" suffix=" (Eds) "/>
+          <text variable="publisher" suffix=", "/>
+          <text variable="publisher-place" suffix=", "/>
+          <text variable="page" prefix="pp. " suffix="."/>
+        </group>
+      </if>
+      <if type="book">
+        <group delimiter=". ">
+          <text macro="author"/>
+          <text variable="issued" prefix=" " suffix=",">
+            <date form="numeric" date-parts="year"/>
+          </text>
+          <text variable="title" font-style="italic"/>
+          <group delimiter=", ">
+            <text variable="edition" suffix=" Edition"/>
+            <text variable="publisher"/>
+            <text variable="publisher-place"/>
+          </group>
+        </group>
+      </if>
+      <if type="report">
+        <group delimiter=". ">
+          <choose>
+            <if variable="author" match="Anonymous">
+              <text term="anonymous" form="short" suffix=", "/>
+            </if>
+            <else>
+              <text macro="author"/>
+              <text variable="issued" prefix=" " suffix=",">
+                <date form="numeric" date-parts="year"/>
+              </text>
+            </else>
+          </choose>
+          <text variable="title" font-style="italic"/>
+          <group delimiter=", ">
+            <text variable="number" prefix="Num. "/>
+            <text variable="publisher"/>
+          </group>
+          <text variable="page" prefix="pp. " suffix="."/>
+        </group>
+      </if>
+      <if type="thesis">
+        <group delimiter=". ">
+          <text macro="author"/>
+          <text variable="issued" prefix=" " suffix=",">
+            <date form="numeric" date-parts="year"/>
+          </text>
+          <text variable="title" font-style="normal"/>
+          <text variable="genre" suffix=", "/>
+          <text variable="publisher" suffix=", "/>
+          <text variable="publisher-place" suffix="."/>
+        </group>
+      </if>
+      <if type="webpage">
+        <group delimiter=". ">
+          <text variable="URL" prefix="www."/>
+          <text variable="accessed" prefix="[Accessed on " form="text" suffix="]"/>
+        </group>
+      </if>
+    </layout>
+  </bibliography>
+</style>
