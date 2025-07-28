@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <info>
+    <title>UHSB Reference Style</title>
+    <id>https://github.com/PALLAVI2423/UHSB-reference-style/raw/refs/heads/main/UHSB%20reference%20style.csl</id>
+    <link href="https://github.com/PALLAVI2423/UHSB-reference-style" rel="self"/>
+    <author>
+      <name>Pallavi S</name>
+    </author>
+    <category citation-format="author-date"/>
+    <updated>2025-07-27T00:00:00+05:30</updated>
+  </info>
+
+  <macro name="author">
+    <names variable="author">
+      <name and="text" name-as-sort-order="all" delimiter=", "/>
+    </names>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" font-style="italic"/>
+  </macro>
+
+  <macro name="issued">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="journal-article">
+    <group delimiter="">
+      <text macro="author"/>
+      <text macro="issued" prefix=" (" suffix=")"/>
+      <text macro="title" prefix=". "/>
+      <text variable="container-title-short" prefix=", "/>
+      <text variable="volume" prefix=", "/>
+      <text variable="page" prefix=": "/>
+      <text suffix="."/>
+    </group>
+  </macro>
+
+  <citation>
+    <layout delimiter="; ">
+      <text macro="author"/>
+      <text macro="issued" prefix=" (" suffix=")"/>
+    </layout>
+  </citation>
+
+  <bibliography>
+    <sort>
+      <key macro="author"/>
+      <key macro="issued"/>
+    </sort>
+    <layout>
+      <text macro="journal-article"/>
+    </layout>
+  </bibliography>
+</style>
